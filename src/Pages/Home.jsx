@@ -1,7 +1,7 @@
 import { getPoPMovies } from 'service/service';
 import { useEffect, useState } from 'react';
-// import { Movies } from 'Pages/Movies/Movies';
 import { Link } from 'react-router-dom';
+import { Container } from './MovieDetails.styled';
 
 export const Home = () => {
   const [films, setFilms] = useState([]);
@@ -11,7 +11,7 @@ export const Home = () => {
   }, []);
 
   return (
-    <>
+    <Container>
       <h2>Trending today</h2>
       <ul>
         {films.map(el => {
@@ -24,6 +24,6 @@ export const Home = () => {
           );
         })}
       </ul>
-    </>
+    </Container>
   );
 };

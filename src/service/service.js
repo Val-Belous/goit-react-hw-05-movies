@@ -1,21 +1,5 @@
 import axios from 'axios';
 
-// axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
-// const API_KEY = 'a1fbf574afa240654ce82ff2490808e3';
-
-// export const fetchFilms = async () => {
-//   const response = await axios.get(`trending/all/day?api_key=${API_KEY}`);
-//   return response.data.results;
-// };
-
-// export const fetchSearch = async () => {
-//   const response = await axios.get(
-//     `search/movie?api_key=${API_KEY}&language=en-US&page=1&include_adult=false`
-//   );
-//   return response.data.results;
-// };
-
-// ========================================
 const KEY_API = 'a1fbf574afa240654ce82ff2490808e3';
 const BASE_URL = 'https://api.themoviedb.org/3';
 const defaultParams = {
@@ -28,7 +12,7 @@ const moviesApiClient = axios.create({
 });
 
 export const getPoPMovies = async () => {
-  const { data } = await moviesApiClient.get('/trending/all/day');
+  const { data } = await moviesApiClient.get('/trending/movie/day');
   return data.results;
 };
 export const getSerchMovies = async query => {
@@ -37,7 +21,7 @@ export const getSerchMovies = async query => {
       query,
     },
   });
-  return data;
+  return data.results;
 };
 export const getDetailsMovies = async id => {
   const { data } = await moviesApiClient.get(`movie/${id}`);
@@ -50,5 +34,5 @@ export const getCastMovies = async id => {
 export const getRewiesMovies = async id => {
   const { data } = await moviesApiClient.get(`
 /movie/${id}/reviews`);
-  return data;
+  return data.results;
 };

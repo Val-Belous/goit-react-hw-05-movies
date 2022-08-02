@@ -4,6 +4,8 @@ import { Home } from '../Pages/Home';
 import { Movies } from '../Pages/Movies';
 import { Cast } from './Cast/Cast';
 import { Navigation } from './Navigation/Navigation';
+import { Reviews } from './Reviews/Reviews';
+import { NotFound } from 'Pages/NotFound';
 
 export const App = () => {
   return (
@@ -14,7 +16,9 @@ export const App = () => {
         <Route path="/movies" element={<Movies />}></Route>
         <Route path="/movies/:movieId" element={<MovieDetails />}>
           <Route path="cast" element={<Cast />}></Route>
+          <Route path="reviews" element={<Reviews />}></Route>
         </Route>
+        <Route path="*" element={<NotFound />}></Route>
       </Routes>
     </>
   );

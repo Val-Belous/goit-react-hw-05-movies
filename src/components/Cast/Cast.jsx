@@ -7,8 +7,6 @@ export const Cast = () => {
   const [cast, setCast] = useState([]);
   const { movieId } = useParams();
 
-  console.log(cast);
-
   useEffect(() => {
     getCastMovies(movieId).then(({ cast }) => setCast(cast));
   }, [movieId]);
