@@ -6,7 +6,7 @@ import { NotFound } from './NotFound';
 import { BackButton } from './MovieDetails.styled';
 import { Container } from './MovieDetails.styled';
 
-export const MovieDetails = () => {
+const MovieDetails = () => {
   const [details, setDetails] = useState(null);
   const { movieId } = useParams();
   const location = useLocation();
@@ -62,3 +62,5 @@ export const MovieDetails = () => {
     </Container>
   );
 };
+
+export default MovieDetails;

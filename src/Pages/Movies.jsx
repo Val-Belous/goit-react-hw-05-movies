@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Link, useSearchParams, useLocation } from 'react-router-dom';
 import { getSerchMovies } from 'service/service';
 
-export const Movies = () => {
+const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [query, setQuery] = useState('');
   const [movie, setMovie] = useState([]);
@@ -46,8 +46,10 @@ export const Movies = () => {
             })}
         </ul>
       ) : (
-        <h3>There is no films yet</h3>
+        <h3>Please enter the search request</h3>
       )}
     </>
   );
 };
+
+export default Movies;

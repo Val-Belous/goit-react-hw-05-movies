@@ -3,7 +3,7 @@ import { getCastMovies } from 'service/service';
 import { useParams } from 'react-router-dom';
 import { CastItem } from './CastItem';
 
-export const Cast = () => {
+const Cast = () => {
   const [cast, setCast] = useState([]);
   const { movieId } = useParams();
 
@@ -29,3 +29,5 @@ export const Cast = () => {
     </>
   );
 };
+
+export default Cast;
