@@ -7,21 +7,29 @@ const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [query, setQuery] = useState('');
   const [movie, setMovie] = useState([]);
+
   const location = useLocation();
+
+  console.log();
 
   useEffect(() => {
     if (searchParams.get('query') === null) {
       return;
     }
+
     getSerchMovies(searchParams.get('query')).then(setMovie);
   }, [searchParams, setMovie]);
 
   const handlerInput = evt => {
+    console.log(evt.target.value);
     setQuery(evt.target.value);
   };
 
   const onSubmit = evt => {
     evt.preventDefault();
+    if (query === '') {
+      return alert('enter some request');
+    }
     setSearchParams({ query: query });
     setQuery('');
   };
